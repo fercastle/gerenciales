@@ -11,9 +11,15 @@
 <body>
 
   <div class="container-fluid">
+    <div class="row">
+      <header class="caja offset-1 col-md-12">
+        <br>
+        <h2>Lista de proveedores</h2>
+      </header>
+    </div>
     <div class="row justify-content-center">
 
-      <div class="col-md-8">
+      <div class="col-md-10">
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -21,9 +27,7 @@
               <th>Nombre</th>
               <th>Direccion</th>
               <th>Telefono</th>
-              <th>Correo</th>
-              <th>Descripcion</th>
-              <th>Fecha/Registro</th>
+
               <th>Opciones</th>
             </tr>
           </thead>
@@ -31,19 +35,17 @@
             <?php foreach ($proveedores as $key => $proveedor): ?>
               <tr>
                 <td><?php echo $proveedor['idproveedor'] ?></td>
-                <td> <a href="informacion.php?id=<?php echo $proveedor['idproveedor'] ?>"><?php echo $proveedor['nombre_proveedor']?></a> </td>
+                <td width="18%"> <a href="informacion.php?id=<?php echo $proveedor['idproveedor'] ?>"><?php echo $proveedor['nombre_proveedor']?></a> </td>
                 <td width="45%" ><?php echo $proveedor['direccion_proveedor'] ?></td>
                 <td><?php echo $proveedor['telefono_proveedor'] ?></td>
-                <td><?php echo $proveedor['correo_proveedor'] ?></td>
-                <td><?php echo $proveedor['descripcion_proveedor'] ?></td>
-                <td><?php echo $proveedor['fecha_registroprov'] ?></td>
-                <td><a href="editar.php?id=<?php echo $proveedor['idproveedor'] ?>" class="btn btn-success btn-sm">Editar</a></td>
+
+                <td width="10%"><a href="editar.php?id=<?php echo $proveedor['idproveedor'] ?>" class="btn btn-success btn-sm">Editar</a></td>
               </tr>
             <?php endforeach; ?>
           </tbody>
         </table>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nuevo" name="button"> Nuevo </button>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo" name="button"> Nuevo </button>
       </div>
     </div>
     <!-- Modal -->

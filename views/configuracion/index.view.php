@@ -36,8 +36,35 @@
                 </ul>
             </div>
         </header>
-        <a href="proveedores/index.php">Proveedores</a>
-        <a href="usuarios.php" class="btn btn-primary">Usuarios</a>
+        <!-- Opciones del menu -->
+        <br>
+        <div class="row justify-content-center">
+
+          <!-- Agregamos una tarjeta "card" es otro componente de bootstrap -->
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="../../img/industry.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Proveedores</h5>
+                <p class="card-text">Permite ver, registrar y modificar la informacion de los proveedores</p>
+                <a href="proveedores/index.php" class="btn btn-primary">Acceder</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="../../img/users.png" width="180" height="180" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Usuarios</h5>
+                <p class="card-text">Permite ver, registrar y modificar la informacion de los usuarios</p>
+                <a href="usuarios.php" class="btn btn-primary">Acceder</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
     </div>
     <!-- Enlazamos los archivos js de bootstrap -->
     <script src="../../js/popper.min.js"></script>

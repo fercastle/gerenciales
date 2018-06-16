@@ -6,7 +6,7 @@ require_once("../../config/sql.php");
 
 // Obtenemos la informacion del cliente
 $SQL->conect();
-$cliente = $SQL->select("SELECT * FROM clientes WHERE idcliente = ".$_GET['id']."");
+$cliente = $SQL->select("SELECT * FROM tblclientes INNER JOIN tblusuarios ON tblclientes.idusuario = tblusuarios.idusuario WHERE idcliente "."=".$_GET['id']."");
 $SQL->close();
 
 // Verificamos si hay datos

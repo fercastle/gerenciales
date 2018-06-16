@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
 }
 //Obteniendo los datos del idusuario
 $SQL->conect();
-$proveedor = $SQL->select("SELECT * FROM tblproveedores WHERE idproveedor= ".$_SESSION['idUpdate']."");
+$proveedor = $SQL->select("SELECT * FROM tblproveedores WHERE idproveedor= ".$_SESSION['idproveedor']."");
 $SQL->close();
 // print_r($proveedor);
 //verificando si hay datos

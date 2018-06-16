@@ -6,15 +6,16 @@ require_once("../../../config/sql.php");
 
 // Obtenemos la informacion del cliente
 $SQL->conect();
-$proveedor = $SQL->select("SELECT * FROM tblproveedores WHERE idproveedor = ".$_GET['id']."");
+$proveedor = $SQL->select("SELECT * FROM tblproveedores INNER JOIN tblusuarios ON tblproveedores.idusuario = tblusuarios.idusuario WHERE idproveedor "."=".$_GET['id']."");
 $SQL->close();
 
 // Verificamos si hay datos
-if (empty($proveedor)) {
-  header("location: index.php");
-}
+// if (empty($proveedor)) {
+//   header("location: index.php");
+// }
 
 $proveedor = $proveedor[0]; // Accedemos al indice 0
+// print_r($proveedor);
 
-require_once("../../../views/clientes/informacion.view.php");
+require_once("../../../views/configuracion/proveedores/informacion.view.php");
 ?>

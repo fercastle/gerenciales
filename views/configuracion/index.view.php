@@ -14,7 +14,7 @@
             <div class="navbar navbar-expand navbar-dark bg-dark col-md-12">
                 <a href="#" class="navbar-brand">Menu de navegacion</a>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a href="#" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">

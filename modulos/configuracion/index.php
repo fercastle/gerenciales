@@ -7,5 +7,5 @@
     if($_SESSION['usuario']['tipo'] != 2){
         header('location: ../../index.php');
     }
-    require_once('../../views/configuracion/index.view.php');
+    require_once('../../views/clientes/index.view.php');
 ?>

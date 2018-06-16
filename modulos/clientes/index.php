@@ -5,8 +5,8 @@ require_once("../../config/funciones.php");
 require_once("../../config/sql.php");
 
 // Creamos un arreglo para mantener los datos ingresados por el usuario
-$_SESSION['temp'] = array('nombre' => '' , 'apellido' => '', 'genero' => '',
-                          'edad' => '', 'telefono' => '', 'direccion' => '');
+$_SESSION['temp'] = array('nombre' => '' , 'apellido' => '', 'direccion' => '',
+                          'telefono' => '');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
 
@@ -15,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
   // Limpiamos los datos
   $nombre = limpiar($_SESSION['temp']['nombre']);
   $apellido = limpiar($_SESSION['temp']['apellido']);
-  $edad = limpiar($_SESSION['temp']['edad']);
-  $telefono = limpiar($_SESSION['temp']['telefono']);
   $direccion = limpiar($_SESSION['temp']['direccion']);
+  $telefono = limpiar($_SESSION['temp']['telefono']);
+
 
   // Validaciones
   $errores = "";
@@ -30,28 +30,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
   if ($apellido == "" || $apellido == NULL) {
     $errores .= "<li>Por favor ingrese el apellido</li>";
   }
-
-  if ($edad == "" || $edad == NULL) {
-    $errores .= "<li>Por favor ingrese la edad</li>";
-  }elseif (!is_numeric($edad)) {
-    // Verificamos si la edad es un numero
-    $errores .= "<li>Por favor una edad valida</li>";
-    $_SESSION['temp']['edad'] = ""; // limpiamos el campo edad
+  if ($direccion == "" || $direccion == NULL) {
+    $errores .= "<li>Por favor ingrese la direccion</li>";
   }
 
   if ($telefono == "" || $telefono == NULL) {
     $errores .= "<li>Por favor ingrese el numero de telefono</li>";
   }
 
-  if ($direccion == "" || $direccion == NULL) {
-    $errores .= "<li>Por favor ingrese la direccion</li>";
-  }
-
-  if (!isset($_SESSION['temp']['genero'])) {
-    $errores .= "<li>Por favor seleccione un genero</li>";
-  }else {
-    $genero = $_SESSION['temp']['genero'];
-  }
 
   // Si no hay errores procedemos a guardar los datos
   if ($errores == "") {
@@ -60,22 +46,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
     $fecha = $fecha['year'] ."-". $fecha['mon'] ."-". $fecha['mday']; // Le damos el formato de anio-mes-dia
 
     // Preparamos el arreglo
-    $cliente = array('nombre' => $nombre , 'apellido' => $apellido , 'genero' => $genero ,
-                     'edad' => $edad, 'telefono' => $telefono, 'direccion' => $direccion ,
-                     'fecha' => $fecha);
+    $cliente = array('nombre_cliente' => $nombre , 'apellidos_cliente' => $apellido,
+                     'direccion_cliente' => $direccion, 'tel_cliente' => $telefono,
+                     'fecha_ingreso_cliente' => $fecha, 'idusuario'=> $_SESSION['usuario']['id']);
 
     // Guardamos los datos
     $SQL->conect();
-    $SQL->insert($cliente, 'clientes'); // Pasamos el arreglo y el nombre de la tabla
+    $SQL->insert($cliente, 'tblclientes'); // Pasamos el arreglo y el nombre de la tabla
     $SQL->close();
-    header("location: index.php");
+    //header("location: index.php");
   }
 
 }
 
 // Obtenemos los datos para llenar la tabla
 $SQL->conect();
-$clientes = $SQL->select("SELECT * FROM clientes");
+$clientes = $SQL->select("SELECT * FROM tblclientes");
 $SQL->close();
 
 // Cargamos la vista

@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Enlazar css de bootstrap -->
-  <link rel="stylesheet" href="../../../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
   <style media="screen">
     form{
       padding: 20px;
       margin-top: 20px;
     }
   </style>
-  <title>Editar Proveedor</title>
+  <title>Editar cliente</title>
 </head>
 <body>
   <div class="container-fluid">
@@ -46,36 +46,43 @@
             <div class="col-md-8">
                 <div class="row">
                     <header class="encabezado col-md-12">
-                        <h2>Actualizar proveedor</h2>
+                        <h2>Actualizar cliente</h2>
                     </header>
                 </div>
                 <form class="border" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
-                    <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" name="nombre_proveedor" placeholder="nombre" id="nombre" class="form-control" value="<?php echo $_SESSION['temp']['nombre_proveedor'] ?>">
+                        <input type="text" name="nombre_cliente" id="nombre" placeholder="Nombre" class="form-control" value="<?php echo $_SESSION['temp']['nombre_cliente'] ?>">
+                      </div>
                     </div>
-                    <div class="form-group">
-                        <label for="direccion">Direccion</label>
-                        <input type="text" name="direccion_proveedor" placeholder="Direccion" id="direccion" class="form-control" value="<?php echo $_SESSION['temp']['direccion_proveedor'] ?>">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellidos_cliente" id="apellido" placeholder="Apellido" class="form-control" value="<?php echo $_SESSION['temp']['apellidos_cliente'] ?>">
+                      </div>
                     </div>
-                    <div class="row">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="apellido">Direccion</label>
+                        <input type="text" name="direccion_cliente" id="direccion" placeholder="direccion" class="form-control" value="<?php echo $_SESSION['temp']['direccion_cliente'] ?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="correo">Correo</label>
-                                <input type="text" name="correo_proveedor" placeholder="Correo" id="correo" class="form-control" value="<?php echo $_SESSION['temp']['correo_proveedor'] ?>">
+                                <p>Telefono</p>
+                                <input type="text" name="tel_cliente" placeholder="telefono" id="telefono" class="form-control" value="<?php echo $_SESSION['temp']['tel_cliente'] ?>">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="telefono">Telefono</label>
-                                <input type="text" name="telefono_proveedor" placeholder="telefono" id="telefono" class="form-control" value="<?php echo $_SESSION['temp']['telefono_proveedor'] ?>">
-                            </div>
-                        </div>
+
                     </div>
-                    <div class="form-group">
-                        <label for="descripcion">Descripcion</label>
-                        <input type="text" placeholder="Descripion" name="descripcion_proveedor" value="<?php echo $_SESSION['temp']['descripcion_proveedor']?>" id="descripcion" class="form-control">
-                    </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <?php if($_SERVER['REQUEST_METHOD'] == 'POST' && $errores != ""): ?>
@@ -87,15 +94,20 @@
                             <?php endif ?>
                         </div>
                     </div>
-                    <input type="submit" name="guardar" value="Guardar" class="btn btn-primary">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input type="submit" name="guardar" value="Guardar" class="btn btn-primary">
+                      </div>
+                    </div>
+
                 </form>
             </div>
         </div>
+          </div>
 
-    </div>
   <!-- Enlazamos los archivos js de bootstrap -->
-  <script src="../../../js/popper.min.js"></script>
-  <script src="../../../js/jquery.min.js"></script>
-  <script src="../../../js/bootstrap.min.js"></script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
 </body>
 </html>

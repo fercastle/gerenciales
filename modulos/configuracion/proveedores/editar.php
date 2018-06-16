@@ -26,12 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
   $_SESSION['temp'] = $_POST; // Almacenamos en el arreglo temporal los datos enviados por el usuario
 
   // Limpiamos los datos
-  $nombre = limpiar($_SESSION['temp']['nombre']);
-  $direccion = limpiar($_SESSION['temp']['direccion']);
-  $correo = limpiar($_SESSION['temp']['correo']);
-  $telefono = limpiar($_SESSION['temp']['telefono']);
+  $nombre = limpiar($_SESSION['temp']['nombre_proveedor']);
+  $direccion = limpiar($_SESSION['temp']['direccion_proveedor']);
+  $correo = limpiar($_SESSION['temp']['correo_proveedor']);
+  $telefono = limpiar($_SESSION['temp']['telefono_proveedor']);
   // $fecha = limpiar($_SESSION['temp']['fecha']);
-  $descripcion = limpiar($_SESSION['temp']['descripcion']);
+  $descripcion = limpiar($_SESSION['temp']['descripcion_proveedor']);
 
   // Validaciones
   $errores = "";

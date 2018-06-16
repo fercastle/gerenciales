@@ -18,7 +18,7 @@
                         <a href="#" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/modulos/clientes" class="nav-link">Clientes</a>
+                        <a href="modulos/clientes/index.php" class="nav-link">Clientes</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Inventario</a>

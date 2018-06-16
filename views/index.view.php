@@ -40,6 +40,51 @@
                 </ul>
             </div>
         </header>
+        <br>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="img/sell.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Realizar venta</h5>
+                <p class="card-text">Realizar venta del servicio al contado</p>
+                <a href="#" class="btn btn-dark">Vender</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="img/people.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Clientes</h5>
+                <p class="card-text">Registrar, editar y ver informacion de los clientes</p>
+                <a href="#" class="btn btn-dark">Acceder </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="img/boxes.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Inventario</h5>
+                <p class="card-text">Ver informacion de los productos en inventario</p>
+                <a href="#" class="btn btn-dark">Acceder</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="img/report.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Reportes</h5>
+                <p class="card-text">Imprimir reportes de ventas y de clientes</p>
+                <a href="#" class="btn btn-dark">Acceder</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     </div>
     <!-- Enlazamos los archivos js de bootstrap -->
     <script src="js/popper.min.js"></script>

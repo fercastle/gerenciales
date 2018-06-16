@@ -15,7 +15,7 @@
                 <a href="#" class="navbar-brand">Menu de navegacion</a>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Inicio</a>
+                        <a href="../../" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Tienda</a>
@@ -58,7 +58,7 @@
               <div class="card-body">
                 <h5 class="card-title">Usuarios</h5>
                 <p class="card-text">Permite ver, registrar y modificar la informacion de los usuarios</p>
-                <a href="usuarios.php" class="btn btn-primary">Acceder</a>
+                <a href="usuarios/" class="btn btn-primary">Acceder</a>
               </div>
             </div>
           </div>

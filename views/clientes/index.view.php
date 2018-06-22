@@ -16,22 +16,22 @@
             <a href="#" class="navbar-brand">Menu de navegacion</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Inicio</a>
+                    <a href="../../index.php" class="nav-link">Inicio</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Tienda</a>
+                <li class="nav-item active">
+                    <a href="#" class="nav-link">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Inventario</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
-                        Luis Hernandez                        </a>
+                        <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        <a href="../" class="dropdown-item">Configuracion</a>
-                                                    <a href="#" class="dropdown-item">Actualizar Informacion</a>
+                                                        <a href="../configuracion/index.php" class="dropdown-item">Configuracion</a>
+                                                    <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                         <div class="dropdown-divider"></div>
-                        <a href="../../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
+                        <a href="../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
                     </div>
                 </li>
             </ul>

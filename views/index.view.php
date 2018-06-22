@@ -58,7 +58,7 @@
               <div class="card-body">
                 <h5 class="card-title">Clientes</h5>
                 <p class="card-text">Registrar, editar y ver informacion de los clientes</p>
-                <a href="#" class="btn btn-dark">Acceder </a>
+                <a href="/gerenciales/modulos/clientes/index.php" class="btn btn-dark">Acceder </a>
               </div>
             </div>
           </div>

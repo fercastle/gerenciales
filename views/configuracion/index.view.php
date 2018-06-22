@@ -18,14 +18,14 @@
                         <a href="../../" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Tienda</a>
+                        <a href="../../modulos/clientes/index.php" class="nav-link">Clientes</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Inventario</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
-                            Luis Hernandez                        </a>
+                            <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                             <a href="#" class="dropdown-item">Configuracion</a>
                                                         <a href="#" class="dropdown-item">Actualizar Informacion</a>

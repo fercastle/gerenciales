@@ -21,20 +21,20 @@
             <a href="#" class="navbar-brand">Menu de navegacion</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Inicio</a>
+                    <a href="../../../index.php" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Tienda</a>
+                    <a href="../../clientes/index.php" class="nav-link">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Inventario</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
-                        Luis Hernandez                        </a>
+                        <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         <a href="../" class="dropdown-item">Configuracion</a>
-                                                    <a href="#" class="dropdown-item">Actualizar Informacion</a>
+                                                    <a href="../usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                         <div class="dropdown-divider"></div>
                         <a href="../../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
                     </div>
@@ -42,11 +42,12 @@
             </ul>
         </div>
     </header>
+    <br>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="row">
                     <header class="encabezado col-md-12">
-                        <h2>Actualizar proveedor</h2>
+                        <h2>Editar informacion de proveedor</h2>
                     </header>
                 </div>
                 <form class="border" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">

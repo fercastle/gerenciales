@@ -22,20 +22,20 @@
             <a href="#" class="navbar-brand">Menu de navegacion</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Inicio</a>
+                    <a href="../../../index.php" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Tienda</a>
+                    <a href="../../clientes/index.php" class="nav-link">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Inventario</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
-                        Luis Hernandez                        </a>
+                        <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                         <a href="../" class="dropdown-item">Configuracion</a>
-                                                    <a href="#" class="dropdown-item">Actualizar Informacion</a>
+                                                    <a href="../usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                         <div class="dropdown-divider"></div>
                         <a href="../../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
                     </div>
@@ -48,7 +48,7 @@
         <div class="col-md-8 alert alert-info">
           <div class="row">
             <header class="col-md-12">
-            <h3>Datos de proveedor</h3>
+            <h3>Informacion de proveedor</h3>
             </header>
 
           </div>
@@ -85,7 +85,9 @@
             <div class="col-md-12">
               <p> <b>Registrado por: </b> <?php echo $proveedor['username'] ?>
             </div>
-
+          </div>
+          <div class="row justify-content-center">
+            <a href="editar.php?id=<?php echo $proveedor['idproveedor'] ?>" class="btn btn-success">Actualizar informacion</a>
           </div>
         </div>
     </div>

@@ -18,17 +18,17 @@
                         <a href="../../../" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Tienda</a>
+                        <a href="../../clientes/index.php" class="nav-link">Clientes</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Inventario</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
-                            Luis Hernandez                        </a>
+                            <?php echo $_SESSION['usuario']['nombre']?>                       </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a href="../" class="dropdown-item">Configuracion</a>
-                            <a href="../" class="dropdown-item">Actualizar Informacion</a>
+                            <a href="actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                             <div class="dropdown-divider"></div>
                             <a href="../../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
                         </div>
@@ -37,6 +37,7 @@
             </div>
         </header>
     </div>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -68,7 +69,7 @@
                                         <td width="30%"><?php echo $prov['direccionusuario']?></td>
                                         <td><?php echo $tipo = ($prov['tipousuario'] == 1) ? "Estandar" : "Administrador" ?></td>
                                         <td><?php echo $prov['username']?></td>
-                                        <td width="200px"><a href="actualizar.php?id=<?php echo $prov['idusuario']?>"  class="btn btn-success btn-sm">Actualizar</a></td>
+                                        <td width="200px"><a href="actualizar.php?id=<?php echo $prov['idusuario']?>"  class="btn btn-success btn-sm">Editar</a></td>
                                      </tr>
                                 <?php endforeach?>
                             </tbody>

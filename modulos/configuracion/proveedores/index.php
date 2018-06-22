@@ -1,8 +1,14 @@
 <?php
 session_start();
+//evitamos que alguine mas que el usuario pueda acceder a esta informacion
+if($_SESSION["usuario"]["tipo"] != 2){
+  header('location: ../../../index.php');
+}
+
 // Importamos archivos
 require_once("../../../config/funciones.php");
 require_once("../../../config/sql.php");
+
 
 // Creamos un arreglo para mantener los datos ingresados por el usuario
 $_SESSION['temp'] = array('nombre' => '' , 'direccion' => '', 'correo' => '',

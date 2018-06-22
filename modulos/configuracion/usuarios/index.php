@@ -1,4 +1,11 @@
 <?php
+  session_start();
+
+  //evitamos que alguine mas que el usuario pueda acceder a esta informacion
+  if($_SESSION["usuario"]["tipo"] != 2){
+    header('location: ../../../index.php');
+  }
+
   require_once('../../../config/sql.php');
   require_once('../../../config/funciones.php'); // Importamos funciones
   $SQL->conect();
@@ -12,7 +19,7 @@
   if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
     $_SESSION['temp'] = $_POST;
 
-    // limpismod los datos
+    // limpismos los datos
     $nombreusuario = limpiar($_SESSION['temp']['nombreusuario']);
     $apellidousuario = limpiar($_SESSION['temp']['apellidousuario']);
     $fechanacimiento = limpiar($_SESSION['temp']['fechanacimiento']);

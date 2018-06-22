@@ -21,7 +21,7 @@
                         <a href="modulos/clientes/index.php" class="nav-link">Clientes</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Inventario</a>
+                        <a href="modulos/inventario" class="nav-link">Inventario</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">

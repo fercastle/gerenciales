@@ -15,7 +15,7 @@
                 <a href="#" class="navbar-brand">Menu de navegacion</a>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a href="#" class="nav-link">Inicio</a>
+                        <a href="../../index.php" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a href="modulos/clientes/index.php" class="nav-link">Clientes</a>
@@ -68,7 +68,7 @@
               <div class="card-body">
                 <h5 class="card-title">Inventario</h5>
                 <p class="card-text">Ver informacion de los productos en inventario</p>
-                <a href="#" class="btn btn-dark">Acceder</a>
+                <a href="/gerenciales/modulos/inventario/index.php" class="btn btn-dark">Acceder</a>
               </div>
             </div>
           </div>

@@ -70,10 +70,10 @@
       <?php foreach ($productos as $key => $producto): ?>
         <div class="producto">
           <div class="card" style="width: 14rem;">
-            <img class="card-img-top" src="../../img/inventario/foto.jpg" alt="Card image cap">
+            <img class="card-img-top" src="<?php echo $var = ($producto['foto'] != null ) ? $producto['foto'] : '../../img/inventario/default.jpg' ?>" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title"><?php echo $producto['descripcion'] ?></h5>
-              <p class="card-text"><?php echo $producto['precio_venta'] ?></p>
+              <h5 class="card-title"><?php echo $producto['nombre_producto'] ?></h5>
+              <p class="card-text">$<?php echo $producto['precio_venta']  ?></p>
               <a href="informacion.php?id=<?php echo $producto['idproducto'] ?>" class="btn btn-primary">Ver informacion</a>
             </div>
           </div>

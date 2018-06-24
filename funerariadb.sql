@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2018 a las 20:27:36
+-- Tiempo de generación: 24-06-2018 a las 05:21:03
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -84,11 +84,25 @@ CREATE TABLE `tblproductos` (
   `precio_compra` double NOT NULL,
   `precio_venta` double NOT NULL,
   `descripcion` varchar(45) COLLATE utf8_bin NOT NULL,
-  `foto` varchar(150) COLLATE utf8_bin NOT NULL,
+  `foto` varchar(150) COLLATE utf8_bin DEFAULT NULL,
   `fecha_ingreso` date NOT NULL,
   `idproveedor` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `tblproductos`
+--
+
+INSERT INTO `tblproductos` (`idproducto`, `nombre_producto`, `precio_compra`, `precio_venta`, `descripcion`, `foto`, `fecha_ingreso`, `idproveedor`, `idusuario`) VALUES
+(1, 'producto D', 400, 1000, 'Descripcion del producto D', NULL, '2018-06-23', 3, 1),
+(2, 'Europea blanca', 129, 3000, 'Solo para europeos', '../../img/inventario/2_Europea blanca.jpg', '2018-06-24', 3, 1),
+(3, 'Producto B', 120, 500, 'Descripcion del producto B', NULL, '2018-06-23', 4, 1),
+(4, 'Colombiana blanca', 120, 500, 'Descripcion del producto A', '../../img/inventario/4_Colombiana blanca.jpg', '2018-06-24', 3, 1),
+(5, 'Colombiana Morada', 10, 15, 'Servicio funeral para colombianos', '../../img/inventario/5_Colombiana Morada.jpg', '2018-06-24', 3, 1),
+(6, 'Presidente Gris', 200, 500, 'Caja para presidentes', '../../img/inventario/6_Presidente Gris.jpg', '2018-06-24', 3, 1),
+(7, 'Economica', 100, 200, 'Servicio para pobres', '../../img/inventario/7_Economica.jpg', '2018-06-24', 3, 1),
+(8, 'Servivio sin foto', 10, 20, 'a', '', '2018-06-24', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -112,7 +126,8 @@ CREATE TABLE `tblproveedores` (
 --
 
 INSERT INTO `tblproveedores` (`idproveedor`, `nombre_proveedor`, `direccion_proveedor`, `telefono_proveedor`, `correo_proveedor`, `descripcion_proveedor`, `fecha_registroprov`, `idusuario`) VALUES
-(3, 'proveedor A', 'direccion proveedor A', '7777-7777', 'correo@proveedorA.com', 'Descripción Proveedor A', '2018-06-10', 1);
+(3, 'proveedor A', 'direccion proveedor A', '7777-7777', 'correo@proveedorA.com', 'Descripción Proveedor A', '2018-06-10', 1),
+(4, 'Nombre proveedor B', 'Direccion proveedor B', '7272-7373', 'correo@proveedorB.com', 'Descripcion Proveedor B', '2018-06-23', 1);
 
 -- --------------------------------------------------------
 
@@ -217,13 +232,13 @@ ALTER TABLE `tblfacturas`
 -- AUTO_INCREMENT de la tabla `tblproductos`
 --
 ALTER TABLE `tblproductos`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tblproveedores`
 --
 ALTER TABLE `tblproveedores`
-  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idproveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tblusuarios`

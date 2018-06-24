@@ -11,6 +11,9 @@
       padding: 20px;
       margin-top: 20px;
     }
+    input[type="file"]{
+      display: none;
+    }
   </style>
   <title>Editar Servicio</title>
 </head>
@@ -49,7 +52,7 @@
                         <h2>Editar servicio</h2>
                     </header>
                 </div>
-                <form class="border" action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+                <form class="border" action="<?php echo $_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
@@ -88,6 +91,12 @@
                         <label for="descripcion">Descripcion</label>
                         <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion" class="form-control" value="<?php echo $_SESSION['temp']['descripcion'] ?>">
                       </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 input-file">
+                      <label for="picture" class="btn btn-success ">Agregar Foto</label>
+                      <input type="file" name="foto" id="picture" value="" accept="image/*">
                     </div>
                   </div>
                     <div class="row">

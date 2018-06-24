@@ -52,10 +52,30 @@
       }
     }
     if($errores == ""){
+
+      // Movemos la imagen
+      if (!empty($_FILES['foto']) && $_FILES['foto']['error'] !== 4) {
+
+        $check = @getimagesize($_FILES['foto']['tmp_name']);
+        if ($check !== false) {
+          $extencion = '';
+
+          if ($_FILES['foto']['type'] == 'image/jpeg') {
+            $extencion = '.jpg';
+          }elseif ($_FILES['foto']['type'] == 'image/png') {
+            $extencion = '.png';
+          }
+
+          $carpeta_destino = '../../img/inventario/';
+          $archivo_subido = $carpeta_destino . $_SESSION['idupdate'] . '_' . $nombre_producto . $extencion;
+          move_uploaded_file($_FILES['foto']['tmp_name'], $archivo_subido);
+
+        }
+      }
       // agregamos la fecha del registro
       $fecha = getdate();
       $fecha = $fecha['year'] ."-". $fecha['mon'] ."-". $fecha['mday']; // Le damos el formato de anio-mes-dia
-      $producto = array('nombre_producto' => $nombre_producto , 'precio_compra' => $precio_compra, 'precio_venta' => $precio_venta,
+      $producto = array('nombre_producto' => $nombre_producto , 'precio_compra' => $precio_compra, 'precio_venta' => $precio_venta, 'foto' => $archivo_subido,
                         'descripcion' => $descripcion, 'idusuario'=> $_SESSION['usuario']['id'], 'fecha_ingreso' => $fecha, 'idproveedor' => $_POST['idproveedor']);
                                 // Guardamos los datos
 

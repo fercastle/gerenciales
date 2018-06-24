@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
     $SQL->conect();
     $SQL->insert($cliente, 'tblclientes'); // Pasamos el arreglo y el nombre de la tabla
     $SQL->close();
-    //header("location: index.php");
+    header("location: index.php");
   }
 
 }

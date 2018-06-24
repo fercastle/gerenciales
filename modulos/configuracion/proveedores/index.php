@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
     $fecha = $fecha['year'] ."-". $fecha['mon'] ."-". $fecha['mday']; // Le damos el formato de anio-mes-dia
 
     // Preparamos el arreglo
-    $proveedor = array('nombre_roveedor' => $nombre , 'direccion_proveedor' => $direccion, 'telefono_proveedor' => $telefono, 'correo_proveedor' => $correo,
+    $proveedor = array('nombre_proveedor' => $nombre , 'direccion_proveedor' => $direccion, 'telefono_proveedor' => $telefono, 'correo_proveedor' => $correo,
                        'descripcion_proveedor' => $descripcion, 'fecha_registroprov' => $fecha, 'idusuario' => $_SESSION['usuario']['id']);
 
 
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
     $SQL->conect();
     $SQL->insert($proveedor, 'tblproveedores'); // Pasamos el arreglo y el nombre de la tabla
     $SQL->close();
-    header("location: index.php");
+    //header("location: index.php");
   }
 
 }

@@ -28,10 +28,10 @@
                 <li class="nav-item">
                     <a href="../../index.php" class="nav-link">Inicio</a>
                 </li>
-                <li class="nav-item active">
-                    <a href="#" class="nav-link">Clientes</a>
+                <li class="nav-item">
+                    <a href="../clientes/index.php" class="nav-link">Clientes</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown active">
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">Inventario</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a href="index.php" class="dropdown-item">Ver inventario</a>
@@ -67,8 +67,21 @@
 
 
     <div class="row justify-content-center inventario">
+      <?php foreach ($productos as $key => $producto): ?>
+        <div class="producto">
+          <div class="card" style="width: 14rem;">
+            <img class="card-img-top" src="../../img/inventario/foto.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><?php echo $producto['descripcion'] ?></h5>
+              <p class="card-text"><?php echo $producto['precio_venta'] ?></p>
+              <a href="informacion.php?id=<?php echo $producto['idproducto'] ?>" class="btn btn-primary">Ver informacion</a>
+            </div>
+          </div>
+        </div>
+      <?php endforeach; ?>
 
-      <div class="producto">
+
+      <!-- <div class="producto">
         <div class="card" style="width: 14rem;">
           <img class="card-img-top" src="../../img/inventario/foto.jpg" alt="Card image cap">
           <div class="card-body">
@@ -121,18 +134,7 @@
             <a href="#" class="btn btn-primary">Ver informacion</a>
           </div>
         </div>
-      </div>
-
-      <div class="producto">
-        <div class="card" style="width: 14rem;">
-          <img class="card-img-top" src="../../img/inventario/foto.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">Super Presidente super sayajin</h5>
-            <p class="card-text">$1,200</p>
-            <a href="#" class="btn btn-primary">Ver informacion</a>
-          </div>
-        </div>
-      </div>
+      </div> -->
 
     </div>
 

@@ -7,8 +7,13 @@ require_once("../../config/sql.php");
 // Creamos un arreglo para mantener los datos ingresados por el usuario
 $_SESSION['temp'] = array('nombre' => '' , 'apellido' => '', 'direccion' => '',
                           'telefono' => '');
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
+if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['buscar'])){
+  $nombre = limpiar($_POST['busqueda']);
+  $SQL->conect();
+  $clientes = $SQL->select("SELECT * FROM tblclientes WHERE LOWER(nombre_cliente) LIKE LOWER('%$nombre%')");
+  $SQL->close();
+  }
+elseif ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
 
   $_SESSION['temp'] = $_POST; // Almacenamos en el arreglo temporal los datos enviados por el usuario
 
@@ -58,11 +63,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
   }
 
 }
+if(!isset($_POST['buscar']) and (!isset($_POST['guardar'])) or isset($_POST['guardar'])){
+  // Obtenemos los datos para llenar la tabla
+  $SQL->conect();
+  $clientes = $SQL->select("SELECT * FROM tblclientes");
+  $SQL->close();
+}
 
-// Obtenemos los datos para llenar la tabla
-$SQL->conect();
-$clientes = $SQL->select("SELECT * FROM tblclientes");
-$SQL->close();
 
 // Cargamos la vista
 require_once("../../views/clientes/index.view.php");

@@ -16,7 +16,7 @@
       margin: 1%;
     }
   </style>
-  <title>Clientes</title>
+  <title>Productos</title>
 </head>
 <body>
 
@@ -67,18 +67,30 @@
 
 
     <div class="row justify-content-center inventario">
-      <?php foreach ($productos as $key => $producto): ?>
-        <div class="producto">
-          <div class="card" style="width: 14rem;">
-            <img class="card-img-top" src="<?php echo $var = ($producto['foto'] != null ) ? $producto['foto'] : '../../img/inventario/default.jpg' ?>" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title"><?php echo $producto['nombre_producto'] ?></h5>
-              <p class="card-text">$<?php echo $producto['precio_venta']  ?></p>
-              <a href="informacion.php?id=<?php echo $producto['idproducto'] ?>" class="btn btn-primary">Ver informacion</a>
+      <?php if ($productos != ""): ?>
+        <?php foreach ($productos as $key => $producto): ?>
+          <div class="producto">
+            <div class="card" style="width: 14rem;">
+              <img class="card-img-top" src="<?php echo $var = ($producto['foto'] != null ) ? $producto['foto'] : '../../img/inventario/default.jpg' ?>" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title"><?php echo $producto['nombre_producto'] ?></h5>
+                <p class="card-text">$<?php echo $producto['precio_venta']  ?></p>
+                <a href="informacion.php?id=<?php echo $producto['idproducto'] ?>" class="btn btn-primary">Ver informacion</a>
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <div class="row justify-content-center error">
+          <div class="col-md-12 ">
+            <div  class="alert alert-danger" role="alert">
+              No se encontraron coincidencias con el producto ingresado!
             </div>
           </div>
         </div>
-      <?php endforeach; ?>
+
+      <?php endif; ?>
+
 
 
       <!-- <div class="producto">

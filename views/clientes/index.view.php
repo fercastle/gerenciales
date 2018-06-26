@@ -44,7 +44,19 @@
       </header>
     </div>
     <div class="row justify-content-center">
+      <div class="col-md-10 mb-3">
+        <form  action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+          <div class="input-group">
+            <input type="text" class="form-control" name="busqueda" placeholder="Buscar servicio" aria-describedby="inputGroupPrepend" required>
+            <div class="input-group-prepend">
+              <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 
+    <div class="row justify-content-center">
       <div class="col-md-10">
         <table class="table">
           <thead class="thead-dark">
@@ -58,19 +70,28 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($clientes as $key => $cliente): ?>
+            <?php if ($clientes != ""): ?>
+              <?php foreach ($clientes as $key => $cliente): ?>
+                <tr>
+                  <td width="5%"><?php echo $cliente['idcliente'] ?></td>
+                  <td width="25%"> <a href="informacion.php?id=<?php echo $cliente['idcliente'] ?>"><?php echo $cliente['nombre_cliente']." ".$cliente['apellidos_cliente']?></a> </td>
+                  <td width="45%" ><?php echo $cliente['direccion_cliente'] ?></td>
+                  <td width="10%"><?php echo $cliente['tel_cliente'] ?></td>
+                  <td width="10%"><a href="editar.php?id=<?php echo $cliente['idcliente'] ?>" class="btn btn-success btn-sm">Editar</a></td>
+                </tr>
+              <?php endforeach; ?>
+            <?php else: ?>
               <tr>
-                <td width="5%"><?php echo $cliente['idcliente'] ?></td>
-                <td width="25%"> <a href="informacion.php?id=<?php echo $cliente['idcliente'] ?>"><?php echo $cliente['nombre_cliente']." ".$cliente['apellidos_cliente']?></a> </td>
-                <td width="45%" ><?php echo $cliente['direccion_cliente'] ?></td>
-                <td width="10%"><?php echo $cliente['tel_cliente'] ?></td>
-
-                <td width="10%"><a href="editar.php?id=<?php echo $cliente['idcliente'] ?>" class="btn btn-success btn-sm">Editar</a></td>
+                <td>
+                <div  class="alert alert-danger" role="alert">
+                  No se encontraron coincidencias con el cliente ingresado!
+                </div>
+                </td>
               </tr>
-            <?php endforeach; ?>
+            <?php endif; ?>
+
           </tbody>
         </table>
-
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#nuevo" name="button"> Nuevo </button>
       </div>
     </div>
@@ -118,18 +139,21 @@
                         </div>
 
                     </div>
+                  <?php if (!isset($_POST['buscar'])): ?>
+                    <!-- Errores -->
+                    <?php if ($_SERVER['REQUEST_METHOD'] == "POST" && $errores != ""): ?>
+                      <div class="row justify-content-center">
+                        <div class="col-md-11 alert alert-danger">
+                          <ul>
 
-                  <!-- Errores -->
-                  <?php if ($_SERVER['REQUEST_METHOD'] == "POST" && $errores != ""): ?>
-                    <div class="row justify-content-center">
-                      <div class="col-md-11 alert alert-danger">
-                        <ul>
-                          <?php echo $errores ?>
-                        </ul>
+                            <?php echo $errores ?>
+
+
+                          </ul>
+                        </div>
                       </div>
-                    </div>
+                    <?php endif; ?>
                   <?php endif; ?>
-
                 </div>
                 <div class="modal-footer">
                   <input type="submit" name="guardar" class="btn btn-primary" value="Guardar">
@@ -149,12 +173,15 @@
   <script src="../../js/bootstrap.min.js"></script>
 
   <!-- Abrir modal -->
-  <?php if ($_SERVER['REQUEST_METHOD'] == "POST" && $errores != ""): ?>
+  <?php if (!isset($_POST['buscar'])): ?>
+    <?php if ($_SERVER['REQUEST_METHOD'] == "POST" && $errores != ""): ?>
 
-    <script type="text/javascript">
-    $("#nuevo").modal("show");
-    </script>
+      <script type="text/javascript">
+      $("#nuevo").modal("show");
+      </script>
 
+    <?php endif; ?>
   <?php endif; ?>
+
 </body>
 </html>

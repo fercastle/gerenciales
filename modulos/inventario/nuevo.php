@@ -9,7 +9,7 @@
 
   // Creamos un arreglo para mantener los datos ingresados por el usuario
   $_SESSION['temp'] = array('nombre_producto' => '' , 'precio_compra' => '', 'precio_venta' => '',
-                            'descripcion' => '');
+                            'descripcion' => '', 'cantidad_producto');
 
   if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['guardar'])){
     $_SESSION['temp'] = $_POST; // Almacenamos en el arreglo temporal los datos enviados por el usuario
@@ -17,7 +17,7 @@
     $precio_compra = limpiar($_SESSION['temp']['precio_compra']);
     $precio_venta = limpiar($_SESSION['temp']['precio_venta']);
     $descripcion = limpiar($_SESSION['temp']['descripcion']);
-
+    $cantidad_producto = limpiar($_SESSION['temp']['cantidad_producto']);
     // Validaciones
     $errores = "";
 
@@ -45,6 +45,10 @@
       if(strlen($descripcion) > 295){
         $errores .= "<li>La descripcion excede el numero de caracteres permitidos</li>";
       }
+    }
+    if(is_numeric($cantidad_producto) == false){
+      $errores .= "<li>Ingrese una cantidad correcta</li>";
+      $_SESSION['temp']['cantidad_producto'] = '';
     }
     if($errores == ""){
 
@@ -83,7 +87,8 @@
       $fecha = getdate();
       $fecha = $fecha['year'] ."-". $fecha['mon'] ."-". $fecha['mday']; // Le damos el formato de anio-mes-dia
       $producto = array('nombre_producto' => $nombre_producto , 'precio_compra' => $precio_compra, 'precio_venta' => $precio_venta, 'foto' => $archivo_subido,
-                        'descripcion' => $descripcion, 'idusuario'=> $_SESSION['usuario']['id'], 'fecha_ingreso' => $fecha, 'idproveedor' => $_POST['idproveedor']);
+                        'descripcion' => $descripcion, 'idusuario'=> $_SESSION['usuario']['id'], 'fecha_ingreso' => $fecha, 'idproveedor' => $_POST['idproveedor'],
+                         'cantidad_producto' => $cantidad_producto);
                                 // Guardamos los datos
       $SQL->conect();
       $SQL->insert($producto, 'tblproductos'); // Pasamos el arreglo y el nombre de la tabla

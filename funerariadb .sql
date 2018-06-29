@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-06-2018 a las 05:21:03
+-- Tiempo de generación: 28-06-2018 a las 22:26:30
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -43,7 +43,9 @@ CREATE TABLE `tblclientes` (
 --
 
 INSERT INTO `tblclientes` (`idcliente`, `nombre_cliente`, `apellidos_cliente`, `direccion_cliente`, `tel_cliente`, `fecha_ingreso_cliente`, `idusuario`) VALUES
-(1, 'Yolani Maribel', 'Méndez Rodríguez', 'Canton Llano de Santiago, El Divisadero, Morazan', '7777-8888', '2018-06-17', 2);
+(1, 'Yolani Maribel', 'Méndez Rodríguez', 'Canton Llano de Santiago, El Divisadero, Morazan', '7777-8888', '2018-06-17', 2),
+(2, 'Duglas', 'Barahona', 'Ciudad Pacifica, San Miguel', '7890-7890', '2018-06-26', 1),
+(3, 'yanci', 'Martinez', 'San francisco Gotera, Morazan', '7272-7373', '2018-06-26', 1);
 
 -- --------------------------------------------------------
 
@@ -86,6 +88,7 @@ CREATE TABLE `tblproductos` (
   `descripcion` varchar(45) COLLATE utf8_bin NOT NULL,
   `foto` varchar(150) COLLATE utf8_bin DEFAULT NULL,
   `fecha_ingreso` date NOT NULL,
+  `cantidad_producto` int(11) NOT NULL,
   `idproveedor` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -94,15 +97,17 @@ CREATE TABLE `tblproductos` (
 -- Volcado de datos para la tabla `tblproductos`
 --
 
-INSERT INTO `tblproductos` (`idproducto`, `nombre_producto`, `precio_compra`, `precio_venta`, `descripcion`, `foto`, `fecha_ingreso`, `idproveedor`, `idusuario`) VALUES
-(1, 'producto D', 400, 1000, 'Descripcion del producto D', NULL, '2018-06-23', 3, 1),
-(2, 'Europea blanca', 129, 3000, 'Solo para europeos', '../../img/inventario/2_Europea blanca.jpg', '2018-06-24', 3, 1),
-(3, 'Producto B', 120, 500, 'Descripcion del producto B', NULL, '2018-06-23', 4, 1),
-(4, 'Colombiana blanca', 120, 500, 'Descripcion del producto A', '../../img/inventario/4_Colombiana blanca.jpg', '2018-06-24', 3, 1),
-(5, 'Colombiana Morada', 10, 15, 'Servicio funeral para colombianos', '../../img/inventario/5_Colombiana Morada.jpg', '2018-06-24', 3, 1),
-(6, 'Presidente Gris', 200, 500, 'Caja para presidentes', '../../img/inventario/6_Presidente Gris.jpg', '2018-06-24', 3, 1),
-(7, 'Economica', 100, 200, 'Servicio para pobres', '../../img/inventario/7_Economica.jpg', '2018-06-24', 3, 1),
-(8, 'Servivio sin foto', 10, 20, 'a', '', '2018-06-24', 3, 1);
+INSERT INTO `tblproductos` (`idproducto`, `nombre_producto`, `precio_compra`, `precio_venta`, `descripcion`, `foto`, `fecha_ingreso`, `cantidad_producto`, `idproveedor`, `idusuario`) VALUES
+(1, 'producto D', 400, 1000, 'Descripcion del producto D', '', '2018-06-28', 16, 3, 1),
+(2, 'Europea blanca', 129, 3000, 'Solo para europeos', '../../img/inventario/2_Europea blanca.jpg', '2018-06-24', 0, 3, 1),
+(3, 'Producto B', 120, 500, 'Descripcion del producto B', NULL, '2018-06-23', 0, 4, 1),
+(4, 'Colombiana blanca', 120, 500, 'Descripcion del producto A', '../../img/inventario/4_Colombiana blanca.jpg', '2018-06-24', 0, 3, 1),
+(5, 'Colombiana Morada', 10, 15, 'Servicio funeral para colombianos', '', '2018-06-28', 10, 3, 1),
+(6, 'Presidente Gris', 200, 500, 'Caja para presidentes', '../../img/inventario/6_Presidente Gris.jpg', '2018-06-24', 0, 3, 1),
+(7, 'Economica', 100, 200, 'Servicio para pobres', '../../img/inventario/7_Economica.jpg', '2018-06-24', 0, 3, 1),
+(8, 'Servivio sin foto', 10, 20, 'a', '', '2018-06-24', 0, 3, 1),
+(9, 'Nuevo producto', 10000, 3000, 'Es muy buen producto', '../../img/inventario/9_Nuevo producto.jpg', '2018-06-25', 0, 4, 1),
+(10, 'Caja Nueva', 700, 1000, 'Descripcion de la caja nueva', '', '2018-06-28', 13, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -214,7 +219,7 @@ ALTER TABLE `tblusuarios`
 -- AUTO_INCREMENT de la tabla `tblclientes`
 --
 ALTER TABLE `tblclientes`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcompra`
@@ -232,7 +237,7 @@ ALTER TABLE `tblfacturas`
 -- AUTO_INCREMENT de la tabla `tblproductos`
 --
 ALTER TABLE `tblproductos`
-  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idproducto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `tblproveedores`

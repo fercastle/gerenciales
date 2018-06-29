@@ -36,8 +36,8 @@
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
                         <?php echo $_SESSION['usuario']['nombre']?>                       </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        <a href="../configuracion/index.php" class="dropdown-item">Configuracion</a>
-                                                    <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
+                          <a href="../configuracion/modulos/index.php" class="dropdown-item">Configuracion</a>
+                          <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                         <div class="dropdown-divider"></div>
                         <a href="../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
                     </div>
@@ -93,6 +93,13 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                      <div class="col-md-4">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="text" name="cantidad_producto" value="<?php echo $_SESSION['temp']['cantidad_producto'] ?>" placeholder="Cantidad producto">
+                      </div>
+                  </div>
+                  <br>
                   <div class="row">
                     <div class="col-md-4 input-file">
                       <label for="picture" class="btn btn-success ">Agregar Foto</label>

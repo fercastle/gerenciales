@@ -19,7 +19,7 @@
                     <a href="../../index.php" class="nav-link">Inicio</a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">Clientes</a>
+                    <a href="index.php" class="nav-link">Clientes</a>
                 </li>
                 <li class="nav-item">
                     <a href="../inventario/index.php" class="nav-link">Inventario</a>

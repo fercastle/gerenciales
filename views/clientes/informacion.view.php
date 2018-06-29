@@ -34,8 +34,8 @@
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
                         <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                        <a href="../" class="dropdown-item">Configuracion</a>
-                                                    <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
+                          <a href="../configuracion" class="dropdown-item">Configuracion</a>
+                          <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                         <div class="dropdown-divider"></div>
                         <a href="../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
                     </div>

@@ -95,6 +95,13 @@
                     </div>
                   </div>
                   <div class="row">
+                      <div class="col-md-4">
+                        <label for="cantidad">Cantidad</label>
+                        <input type="text" name="cantidad_producto" value="<?php echo $_SESSION['temp']['cantidad_producto'] ?>" placeholder="Cantidad producto">
+                      </div>
+                  </div>
+                  <br>
+                  <div class="row">
                     <div class="col-md-4 input-file">
                       <label for="picture" class="btn btn-success ">Agregar Foto</label>
                       <input type="file" name="foto" id="picture" value="" accept="image/*">

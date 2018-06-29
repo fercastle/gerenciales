@@ -6,7 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Enlazamos css de bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <title>Bootstrap</title>
+    <style>
+      .footer-bottom {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: #000000;
+        min-height: 30px;
+        width: 100%;
+      }
+      .copyright {
+        color: #fff;
+        line-height: 30px;
+        min-height: 30px;
+        text-align: center;
+        padding: 7px 0;
+      }
+    </style>
+    <title>Inicio</title>
 </head>
 <body>
     <div class="container-fluid">
@@ -15,7 +32,7 @@
                 <a href="#" class="navbar-brand">Menu de navegacion</a>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a href="../../index.php" class="nav-link">Inicio</a>
+                        <a href="index.php" class="nav-link">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a href="modulos/clientes/index.php" class="nav-link">Clientes</a>
@@ -32,7 +49,7 @@
                                 <a href="modulos/configuracion" class="dropdown-item">Configuracion</a>
                             <?php endif?>
 
-                            <a href="#" class="dropdown-item">Actualizar Informacion</a>
+                            <a href="modulos/configuracion/usuarios/index.php" class="dropdown-item">Actualizar Informacion</a>
                             <div class="dropdown-divider"></div>
                             <a href="cerrar.session.php" class="dropdown-item">Cerrar session</a>
                         </div>
@@ -83,7 +100,25 @@
             </div>
           </div>
         </div>
+    </div>
+    <div class="footer-bottom">
 
+	     <div class="container">
+
+		       <div class="row">
+
+			          <div class="col-md-12">
+
+				              <div class="copyright">
+
+					              © 2018, Funeraria "Manantiales de vida", All rights reserved
+
+				              </div>
+
+			          </div>
+		       </div>
+
+	     </div>
 
     </div>
     <!-- Enlazamos los archivos js de bootstrap -->

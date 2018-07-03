@@ -13,10 +13,14 @@
   $precio = $total_venta[0]['precio_venta'];
   $cantidad = $total_venta[0]['cantidad_producto'];
   $cantidad = $cantidad - 1;
-  echo $cantidad;
+  // echo $cantidad;
 
+  $cliente = $SQL->select("SELECT * FROM tblclientes WHERE idcliente = ".$_GET['idcliente']."");
+  $cliente = $cliente[0];
   $fecha = getdate();
+  $fechaFactura = getdate();
   $fecha = $fecha['year'] ."-". $fecha['mon'] ."-". $fecha['mday'];
+  $fechaFactura = $fechaFactura['mday'] ."-". $fechaFactura['mon'] ."-".  $fechaFactura['year'];
   $factura = array('idcliente'=>$_GET['idcliente'], 'idusuario'=>$_SESSION['usuario']['id'],
                   'idproducto'=>$_GET['idproducto'], 'fecha_factura'=>$fecha, 'total_venta'=>$precio );
   $producto = array('nombre_producto' => $total_venta[0]['nombre_producto'] , 'precio_compra' => $total_venta[0]['precio_compra'], 'precio_venta' => $total_venta[0]['precio_venta'], 'foto' => $total_venta[0]['foto'],

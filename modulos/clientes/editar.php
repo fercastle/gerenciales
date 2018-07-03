@@ -23,7 +23,7 @@ $cliente = $cliente[0]; // Accedemos al indice 0
 $_SESSION['temp'] = $cliente;
 //print_r($_SESSION['temp']);
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['guardar'])) {
-  print_r($_POST);
+  // print_r($_POST);
   $_SESSION['temp'] = $_POST; // Almacenamos en el arreglo temporal los datos enviados por el usuario
 
   // Limpiamos los datos

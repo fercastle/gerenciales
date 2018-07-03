@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Enlazar css de bootstrap -->
   <link rel="stylesheet" href="../../css/bootstrap.min.css">
-  <title>Clientes</title>
+  <title>Registro Ventas</title>
 </head>
 <body>
 
@@ -28,10 +28,8 @@
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
                         <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <?php if($_SESSION['usuario']['tipo'] == 2):?>
-                          <a href="../configuracion/index.php" class="dropdown-item">Configuracion</a>
-                      <?php endif?>
-                          <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
+                                                        <a href="../configuracion/index.php" class="dropdown-item">Configuracion</a>
+                                                    <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                         <div class="dropdown-divider"></div>
                         <a href="../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
                     </div>
@@ -42,14 +40,14 @@
     <div class="row">
       <header class="caja offset-1 col-md-12">
         <br>
-        <h2>Lista de clientes</h2>
+        <h2>Seleccione un cliente para realizar venta</h2>
       </header>
     </div>
-    <div class="row justify-content-center ">
+    <div class="row justify-content-center">
       <div class="col-md-10 mb-3">
         <form  action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
           <div class="input-group">
-            <input type="text" class="form-control" name="busqueda" placeholder="Buscar cliente" aria-describedby="inputGroupPrepend" required>
+            <input type="text" class="form-control" name="busqueda" placeholder="Buscar servicio" aria-describedby="inputGroupPrepend" required>
             <div class="input-group-prepend">
               <input type="submit" name="buscar" value="Buscar" class="btn btn-primary">
             </div>
@@ -60,7 +58,7 @@
 
     <div class="row justify-content-center">
       <div class="col-md-10">
-        <table class="table" >
+        <table class="table">
           <thead class="thead-dark">
             <tr>
               <th>Id</th>
@@ -76,10 +74,10 @@
               <?php foreach ($clientes as $key => $cliente): ?>
                 <tr>
                   <td width="5%"><?php echo $cliente['idcliente'] ?></td>
-                  <td width="25%"> <a href="informacion.php?id=<?php echo $cliente['idcliente'] ?>"><?php echo $cliente['nombre_cliente']." ".$cliente['apellidos_cliente']?></a> </td>
+                  <td width="25%"><?php echo $cliente['nombre_cliente']." ".$cliente['apellidos_cliente']?></td>
                   <td width="45%" ><?php echo $cliente['direccion_cliente'] ?></td>
                   <td width="10%"><?php echo $cliente['tel_cliente'] ?></td>
-                  <td width="10%"><a href="editar.php?id=<?php echo $cliente['idcliente'] ?>" class="btn btn-success btn-sm">Editar</a></td>
+                  <td width="10%"><a href="producto.php?id=<?php echo $cliente['idcliente'] ?>" class="btn btn-primary btn-sm">Seleccionar</a></td>
                 </tr>
               <?php endforeach; ?>
             <?php else: ?>

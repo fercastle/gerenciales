@@ -9,7 +9,7 @@
 
   // Creamos un arreglo para mantener los datos ingresados por el usuario
   $_SESSION['temp'] = array('nombre_producto' => '' , 'precio_compra' => '', 'precio_venta' => '',
-                            'descripcion' => '', 'cantidad_producto');
+                            'descripcion' => '', 'cantidad_producto'=>'');
 
   if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['guardar'])){
     $_SESSION['temp'] = $_POST; // Almacenamos en el arreglo temporal los datos enviados por el usuario

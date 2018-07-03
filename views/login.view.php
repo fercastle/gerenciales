@@ -12,13 +12,13 @@
             margin-top: 20px;
         }
     </style>
-    <title>Ejercicio1</title>
+    <title>Login de Usuario</title>
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="border">
+                <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" class="shadow-lg p-3 mb-5 bg-white rounded">
                     <h3>Iniciar sesión</h3>
                     <div class="form-group">
                         <label for="nombre">Nombre</label>

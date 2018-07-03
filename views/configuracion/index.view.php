@@ -28,7 +28,7 @@
                             <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                             <a href="#" class="dropdown-item">Configuracion</a>
-                                                        <a href="usuarios/actualizar.php" class="dropdown-item">Actualizar Informacion</a>
+                                                        <a href="usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                             <div class="dropdown-divider"></div>
                             <a href="cerrar.session.php" class="dropdown-item">Cerrar session</a>
                         </div>

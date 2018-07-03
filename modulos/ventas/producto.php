@@ -21,6 +21,6 @@ $SQL->close();
 }
 //print_r($productos);
 
-require_once("../../views/inventario/index.view.php");
+require_once("../../views/ventas/producto.view.php");
 
  ?>

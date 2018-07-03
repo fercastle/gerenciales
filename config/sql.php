@@ -118,7 +118,7 @@ class Sql
     }
 
     $consulta = 'UPDATE '.$tabla.' SET '.substr($datos, 0,-2).' WHERE '.$nombreid.' = ' . $id;
-    echo($consulta);
+    //echo($consulta);
 
     $stmt = $this->conexion->prepare($consulta);
     $stmt->execute();

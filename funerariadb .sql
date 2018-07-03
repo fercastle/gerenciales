@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-06-2018 a las 22:26:30
+-- Tiempo de generación: 03-07-2018 a las 03:51:26
 -- Versión del servidor: 10.1.29-MariaDB
 -- Versión de PHP: 7.2.0
 
@@ -45,7 +45,10 @@ CREATE TABLE `tblclientes` (
 INSERT INTO `tblclientes` (`idcliente`, `nombre_cliente`, `apellidos_cliente`, `direccion_cliente`, `tel_cliente`, `fecha_ingreso_cliente`, `idusuario`) VALUES
 (1, 'Yolani Maribel', 'Méndez Rodríguez', 'Canton Llano de Santiago, El Divisadero, Morazan', '7777-8888', '2018-06-17', 2),
 (2, 'Duglas', 'Barahona', 'Ciudad Pacifica, San Miguel', '7890-7890', '2018-06-26', 1),
-(3, 'yanci', 'Martinez', 'San francisco Gotera, Morazan', '7272-7373', '2018-06-26', 1);
+(3, 'Yanci', 'Martinez', 'San francisco Gotera, Morazan', '7272-7373', '2018-06-29', 1),
+(4, 'Duglas', 'Diaz', 'SDSDSDD', '0000-0000', '2018-06-29', 1),
+(5, 'Duglas', 'Diaz', 'SDSDSDD', '0000-0000', '2018-06-29', 1),
+(6, 'Nombre proveedor C', 'Apellido Cliente B', 'Direccion proveedor E', '0000-0000', '2018-06-29', 1);
 
 -- --------------------------------------------------------
 
@@ -70,9 +73,22 @@ CREATE TABLE `tblfacturas` (
   `idfactura` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL,
   `idusuario` int(11) NOT NULL,
+  `idproducto` int(11) NOT NULL,
   `fecha_factura` date NOT NULL,
   `total_venta` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `tblfacturas`
+--
+
+INSERT INTO `tblfacturas` (`idfactura`, `idcliente`, `idusuario`, `idproducto`, `fecha_factura`, `total_venta`) VALUES
+(1, 4, 1, 1, '2018-06-29', 1000),
+(2, 3, 1, 10, '2018-07-01', 1000),
+(3, 2, 1, 1, '2018-07-01', 1000),
+(4, 2, 1, 1, '2018-07-01', 1000),
+(5, 3, 1, 10, '2018-07-01', 1000),
+(6, 4, 3, 1, '2018-07-02', 1000);
 
 -- --------------------------------------------------------
 
@@ -98,7 +114,7 @@ CREATE TABLE `tblproductos` (
 --
 
 INSERT INTO `tblproductos` (`idproducto`, `nombre_producto`, `precio_compra`, `precio_venta`, `descripcion`, `foto`, `fecha_ingreso`, `cantidad_producto`, `idproveedor`, `idusuario`) VALUES
-(1, 'producto D', 400, 1000, 'Descripcion del producto D', '', '2018-06-28', 16, 3, 1),
+(1, 'producto D', 400, 1000, 'Descripcion del producto D', '', '2018-07-01', 14, 3, 1),
 (2, 'Europea blanca', 129, 3000, 'Solo para europeos', '../../img/inventario/2_Europea blanca.jpg', '2018-06-24', 0, 3, 1),
 (3, 'Producto B', 120, 500, 'Descripcion del producto B', NULL, '2018-06-23', 0, 4, 1),
 (4, 'Colombiana blanca', 120, 500, 'Descripcion del producto A', '../../img/inventario/4_Colombiana blanca.jpg', '2018-06-24', 0, 3, 1),
@@ -107,7 +123,7 @@ INSERT INTO `tblproductos` (`idproducto`, `nombre_producto`, `precio_compra`, `p
 (7, 'Economica', 100, 200, 'Servicio para pobres', '../../img/inventario/7_Economica.jpg', '2018-06-24', 0, 3, 1),
 (8, 'Servivio sin foto', 10, 20, 'a', '', '2018-06-24', 0, 3, 1),
 (9, 'Nuevo producto', 10000, 3000, 'Es muy buen producto', '../../img/inventario/9_Nuevo producto.jpg', '2018-06-25', 0, 4, 1),
-(10, 'Caja Nueva', 700, 1000, 'Descripcion de la caja nueva', '', '2018-06-28', 13, 3, 1);
+(10, 'Caja Nueva', 700, 1000, 'Descripcion de la caja nueva', '', '2018-06-28', 12, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -188,7 +204,8 @@ ALTER TABLE `tblcompra`
 ALTER TABLE `tblfacturas`
   ADD PRIMARY KEY (`idfactura`),
   ADD KEY `fk_facturas_cliente_idx` (`idcliente`),
-  ADD KEY `fk_facturas_usuario_idx` (`idusuario`);
+  ADD KEY `fk_facturas_usuario_idx` (`idusuario`),
+  ADD KEY `fk_factura_producto` (`idproducto`);
 
 --
 -- Indices de la tabla `tblproductos`
@@ -219,7 +236,7 @@ ALTER TABLE `tblusuarios`
 -- AUTO_INCREMENT de la tabla `tblclientes`
 --
 ALTER TABLE `tblclientes`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tblcompra`
@@ -231,7 +248,7 @@ ALTER TABLE `tblcompra`
 -- AUTO_INCREMENT de la tabla `tblfacturas`
 --
 ALTER TABLE `tblfacturas`
-  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idfactura` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tblproductos`
@@ -272,6 +289,7 @@ ALTER TABLE `tblcompra`
 -- Filtros para la tabla `tblfacturas`
 --
 ALTER TABLE `tblfacturas`
+  ADD CONSTRAINT `fk_factura_producto` FOREIGN KEY (`idproducto`) REFERENCES `tblproductos` (`idproducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_facturas_cliente` FOREIGN KEY (`idcliente`) REFERENCES `tblclientes` (`idcliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_facturas_usuario` FOREIGN KEY (`idusuario`) REFERENCES `tblusuarios` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 

@@ -66,7 +66,7 @@ class Sql
     $consulta = 'INSERT INTO '.$tabla.' ( '.substr($tablas, 0,-2).' ) VALUES  ( '.substr($datos,0,-2).' )';
     $statement = $this->conexion->prepare($consulta);
 
-    //echo $consulta;
+    // echo $consulta;
 
     // Ejecutamos nuestra consulta
     $statement->execute();

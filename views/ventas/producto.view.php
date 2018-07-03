@@ -10,13 +10,13 @@
     .inventario{
       display: flex;
       flex-direction: row;
-      justify-content:center;
+      justify-content:
     }
     .producto{
       margin: 1%;
     }
   </style>
-  <title>Servicios</title>
+  <title>Productos</title>
 </head>
 <body>
 
@@ -31,20 +31,14 @@
                 <li class="nav-item">
                     <a href="../clientes/index.php" class="nav-link">Clientes</a>
                 </li>
-                <li class="nav-item dropdown active">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">Inventario</a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="index.php" class="dropdown-item">Ver inventario</a>
-                        <a href="nuevo.php" class="dropdown-item">Agregar nuevo servicio</a>
-                    </div>
+                <li class="nav-item active">
+                    <a href="../inventario/index.php" class="nav-link">Inventario</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="botton" data-toggle="dropdown">
                         <?php echo $_SESSION['usuario']['nombre']?>                        </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <?php if($_SESSION['usuario']['tipo'] == 2):?>
-                          <a href="../configuracion/index.php" class="dropdown-item">Configuracion</a>
-                      <?php endif?>
+                        <a href="../configuracion/index.php" class="dropdown-item">Configuracion</a>
                         <a href="../configuracion/usuarios/actualizar.php?id=<?php echo $_SESSION['usuario']['id'] ?>" class="dropdown-item">Actualizar Informacion</a>
                         <div class="dropdown-divider"></div>
                         <a href="../../cerrar.session.php" class="dropdown-item">Cerrar session</a>
@@ -77,7 +71,7 @@
               <div class="card-body">
                 <h5 class="card-title"><?php echo $producto['nombre_producto'] ?></h5>
                 <p class="card-text">$<?php echo $producto['precio_venta']  ?></p>
-                <a href="informacion.php?id=<?php echo $producto['idproducto'] ?>" class="btn btn-primary">Ver informacion</a>
+                <a href="venta.php?idproducto=<?php echo $producto['idproducto'] ?>&idcliente=<?php echo $_GET['id'] ?>" class="btn btn-primary btn-block">Vender servicio</a>
               </div>
             </div>
           </div>

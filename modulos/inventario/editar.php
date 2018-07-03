@@ -14,6 +14,7 @@
   if (empty($producto)) {
     header("location: index.php");
   }
+  //print_r($producto);
   $producto = $producto[0];
   $_SESSION['temp'] = $producto;
   if($_SERVER['REQUEST_METHOD'] == 'POST' AND isset($_POST['guardar'])){
@@ -22,7 +23,7 @@
     $precio_compra = limpiar($_SESSION['temp']['precio_compra']);
     $precio_venta = limpiar($_SESSION['temp']['precio_venta']);
     $descripcion = limpiar($_SESSION['temp']['descripcion']);
-
+    $cantidad_producto = limpiar($_SESSION['temp']['cantidad_producto']);
     // Validaciones
     $errores = "";
 
@@ -51,6 +52,10 @@
         $errores .= "<li>La descripcion excede el numero de caracteres permitidos</li>";
       }
     }
+    if(is_numeric($cantidad_producto) == false){
+      $errores .= "<li>Ingrese una cantidad correcta</li>";
+      $_SESSION['temp']['cantidad_producto'] = '';
+    }
     if($errores == ""){
 
       // Movemos la imagen
@@ -76,7 +81,7 @@
       $fecha = getdate();
       $fecha = $fecha['year'] ."-". $fecha['mon'] ."-". $fecha['mday']; // Le damos el formato de anio-mes-dia
       $producto = array('nombre_producto' => $nombre_producto , 'precio_compra' => $precio_compra, 'precio_venta' => $precio_venta, 'foto' => $archivo_subido,
-                        'descripcion' => $descripcion, 'idusuario'=> $_SESSION['usuario']['id'], 'fecha_ingreso' => $fecha, 'idproveedor' => $_POST['idproveedor']);
+                        'descripcion' => $descripcion, 'idusuario'=> $_SESSION['usuario']['id'], 'fecha_ingreso' => $fecha, 'idproveedor' => $_POST['idproveedor'],'cantidad_producto'=>$cantidad_producto);
                                 // Guardamos los datos
 
       $SQL->conect();

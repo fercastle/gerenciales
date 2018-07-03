@@ -32,6 +32,9 @@
       $errores .= "<li>Ingrese una cantidad correcta</li>";
       $_SESSION['temp']['cantidad'] = '';
     }
+    if($cantidad <= 0){
+      $errores .= "<li>Ingrese un numero positivo</li>";
+    }
 
     if($errores == "" ){
 

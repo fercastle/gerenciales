@@ -101,7 +101,7 @@
   <div class="row">
     <div class="col-md-12">
       <div class="modal fade" id="agregar" tabindex="-1" >
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-sm">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Reabastecer</h5>
@@ -110,7 +110,7 @@
             <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="post">
               <div class="modal-body">
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                     <div class="form-group">
                       <label for="cantidad">Cantidad</label>
                       <input type="text" name="cantidad" id="cantidad" placeholder="Agregar cantidad " class="form-control">
